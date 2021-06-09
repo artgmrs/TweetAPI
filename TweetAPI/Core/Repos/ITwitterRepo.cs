@@ -8,6 +8,5 @@ namespace TweetAPI.Core.Repos
     {
         //Task<Tweet> GetLastTweet();
         Task<List<Response>> SearchTweets(string query);
-        Task<Response> Post(string tweet);
     }
 }

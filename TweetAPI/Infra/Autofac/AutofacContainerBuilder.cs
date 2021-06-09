@@ -23,15 +23,8 @@ namespace TweetAPI.Infra.Autofac
             builder.Register(c =>
             {
                 var settings = c.Resolve<ISettingsHandler>().GetSettings();
-                var client = new RestClient(settings.Url)
-                {
-                    Authenticator = OAuth1Authenticator.ForProtectedResource(
-                        settings.ApiKey,
-                        settings.ApiSecretKey,
-                        settings.AccessToken,
-                        settings.AccessTokenSecret
-                    )
-                };
+                var client = new RestClient(settings.Url);
+                client.AddDefaultHeader("Authorization", string.Format("Bearer {0}", settings.BearerToken));
                 return client;
             }).As<IRestClient>().SingleInstance();
 

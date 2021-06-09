@@ -13,10 +13,7 @@ namespace TweetAPI.Infra.Clients.Parsers
         {
             dynamic obj = JsonConvert.DeserializeObject(jsonString);
 
-            var tweet = new Response()
-            {
-                CreatedAt = obj.created_at
-            };
+            var tweet = new Response();
 
             return tweet;
         }

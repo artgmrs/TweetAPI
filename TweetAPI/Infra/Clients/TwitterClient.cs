@@ -35,13 +35,5 @@ namespace TweetAPI.Infra.Clients
 
             return _parser.ParseList(response.Content);
         }
-
-        public async Task<Response> Post(string tweet)
-        {
-            var request = new RestRequest($"1.1/statuses/update.json?status={tweet}", Method.POST);
-            request.AddHeader("Content-type", ContentType.Json);
-            var response = await _client.ExecuteAsync(request, CancellationToken.None);
-            return _parser.Parse(response.Content);
-        }
     }
 }
