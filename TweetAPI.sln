@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetAPI", "TweetAPI\TweetAPI.csproj", "{F8B17153-CA8A-4F94-89D9-62F323F70342}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TweetAPI", "TweetAPI\TweetAPI.csproj", "{F8B17153-CA8A-4F94-89D9-62F323F70342}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TweetAPI.Test", "TweetAPI.Test\TweetAPI.Test.csproj", "{8A97449E-FDB0-4935-99CF-2C6768D8B8B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F8B17153-CA8A-4F94-89D9-62F323F70342}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8B17153-CA8A-4F94-89D9-62F323F70342}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8B17153-CA8A-4F94-89D9-62F323F70342}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A97449E-FDB0-4935-99CF-2C6768D8B8B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A97449E-FDB0-4935-99CF-2C6768D8B8B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A97449E-FDB0-4935-99CF-2C6768D8B8B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A97449E-FDB0-4935-99CF-2C6768D8B8B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
