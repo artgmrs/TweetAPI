@@ -10,7 +10,6 @@ namespace TweetAPI.Test.Infra.Clients
         public void OneTimeSetup()
         {
             var _client = new Mock<ITwitterRepo>();
-
         }
     }
 }

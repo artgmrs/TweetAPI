@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using TweetAPI.Core.Repos;
 using TweetAPI.Infra.Autofac;
+using TweetAPI.Infra.IO;
 
 namespace TweetAPI.Infra.UI
 {
@@ -22,12 +23,18 @@ namespace TweetAPI.Infra.UI
             using (var scope = container.BeginLifetimeScope())
             {
                 var twitterClient = scope.Resolve<ITwitterRepo>();
+                var response = await twitterClient.SearchTweets(query);
 
-                var responseSearch = await twitterClient.SearchTweets(query);
-                foreach (var item in responseSearch)
+                var fileHandler = new FileHandler();
+                var writer = fileHandler.Writer;
+
+                foreach (var tweet in response)
                 {
-                    Console.WriteLine(item.Text);
+                    var content = fileHandler.FormatContent(tweet);
+                    await writer.WriteAsync(content);
+                    await writer.FlushAsync();                    
                 }
+                fileHandler.MoveFileToDesktop();
             }
         }
     }
