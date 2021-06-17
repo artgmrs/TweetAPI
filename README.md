@@ -8,7 +8,7 @@ Projeto para estudar comunicação com uma API (Twitter), utilização de OAuth 
 ```
 {
   "url": "https://api.twitter.com/",
-  "bearerToken": "AAAAAAAAAAAAAAAAAAAAAMJ0OwEAAAAAVbp6eluBqaq5BQ%2B%2Fd%2B4ECh6XGmM%3DXHyIfa9VAkAD6GXoycoqAdOtpHSJBojWi0L2O49Zocg39agCnF"
+  "bearerToken": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 }
 ```
 * Rode o projeto e informe a query à ser feita no Twitter.
