@@ -19,7 +19,7 @@ namespace TweetAPI.Infra.IO
 
         public string FormatContent(Response response)
         {
-            string[] fields = new string[]
+            var fields = new string[]
             {
                 response.Id,
                 response.Text
