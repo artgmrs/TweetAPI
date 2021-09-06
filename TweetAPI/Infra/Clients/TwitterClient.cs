@@ -1,6 +1,5 @@
 ﻿using RestSharp;
 using RestSharp.Serialization;
-using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -21,7 +20,7 @@ namespace TweetAPI.Infra.Clients
             ITwitterParser parser)
         {
             _client = client;
-            _parser = parser;   
+            _parser = parser;
         }
 
         public async Task<List<Response>> SearchTweets(string query)

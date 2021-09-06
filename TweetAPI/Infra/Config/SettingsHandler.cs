@@ -11,7 +11,7 @@ namespace TweetAPI.Infra.Config
     public class SettingsHandler : ISettingsHandler
     {
         private readonly string _file;
-        private Settings? _settings = null;
+        private Settings _settings = null;
 
         public void Validate()
         {
