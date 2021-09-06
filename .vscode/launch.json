@@ -12,7 +12,7 @@
             "program": "${workspaceFolder}/TweetAPI/bin/Debug/netcoreapp3.1/TweetAPI.dll",
             "args": [],
             "cwd": "${workspaceFolder}/TweetAPI",
-            "console": "integratedTerminal",
+            "console": "externalTerminal",
             "stopAtEntry": false
         },
         {

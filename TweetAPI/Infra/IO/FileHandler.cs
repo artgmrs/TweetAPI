@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Threading.Tasks;
+using ShellProgressBar;
 using TweetAPI.Core.Entities;
 
 namespace TweetAPI.Infra.IO
@@ -17,18 +20,34 @@ namespace TweetAPI.Infra.IO
             _writer = File.CreateText(_filePath);
         }
 
-        public string FormatContent(Response response)
+        public async Task<string> HandleReponse(
+            List<Response> response,
+            TextWriter writer,
+            IProgress<double> progress)
+        {
+            foreach (var tweet in response)
+            {
+                var content = FormatContent(tweet);
+                await writer.WriteAsync(content);
+                await writer.FlushAsync();
+                progress.Report(1);
+            }
+
+            return MoveFileToDesktop();
+        }
+
+        private string FormatContent(Response response)
         {
             var fields = new string[]
             {
                 response.Id,
-                response.Text
+                response.Text.Replace("\n", "").Replace("\r", "")
             };
 
             return string.Join('|', fields) + System.Environment.NewLine;
         }
 
-        public string MoveFileToDesktop()
+        private string MoveFileToDesktop()
         {
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             string fullPath = Path.Combine(desktopPath, _filePath);

@@ -30,22 +30,15 @@ namespace TweetAPI.Infra.UI
             using (var progressBar = new ProgressBar(10, "Starting request...", options))
             using (var scope = container.BeginLifetimeScope())
             {
-                var progress = progressBar.AsProgress<int>();
+                var progress = progressBar.AsProgress<double>();
                 var twitterClient = scope.Resolve<ITwitterRepo>();
                 var response = await twitterClient.SearchTweets(query);
 
                 var fileHandler = new FileHandler();
                 var writer = fileHandler.Writer;
 
-                foreach (var tweet in response)
-                {
-                    var content = fileHandler.FormatContent(tweet);
-                    await writer.WriteAsync(content);
-                    await writer.FlushAsync();
-                    progress.Report(2);
-                }
+                var deskPath = await fileHandler.HandleReponse(response, writer, progress);
 
-                var deskPath = fileHandler.MoveFileToDesktop();
                 progressBar.Message = "Finished with success!";
                 progressBar.Dispose();
 
